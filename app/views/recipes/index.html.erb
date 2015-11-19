@@ -1,0 +1,50 @@
+<p id="notice"><%= notice %></p>
+
+<h1 id="lst">Recipe Lists</h1>
+
+<table>
+  <style>
+table {
+    border: 1px solid black;
+    font-size: 19px;
+    font-family: times;
+    color: #A80000;
+}
+th, td {
+    padding: 15px;
+    font-family: "Comic Sans MS", cursive, sans-serif;
+}
+</style>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Category</th>
+      <th>Ingredients</th>
+      <th>Instructions</th>
+      <th>Minutes total</th>
+      <th id="ige">Image</th>
+      <th colspan="3"></th>
+
+    </tr>
+  </thead>
+<!-- <img src="..." alt="..." class="img-rounded"> -->
+  <tbody>
+    <% @recipes.each do |recipe| %>
+      <tr>
+        <td id="nm"><%= recipe.name %></td>
+        <td><%= recipe.category %></td>
+        <td><%= recipe.ingredients %></td>
+        <td><%= recipe.instructions %></td>
+        <td><%= recipe.minutes_total%></td>
+        <td><img src="<%= recipe.image %>" alt="<%= recipe.image %>" class="img-rounded"></td>
+        <td><button type="button" class="btn btn-warning btn-xs"><%= link_to 'Show', recipe %></button></td>
+        <td><button id="edt" type="button" class="btn btn-warning btn-xs"><%= link_to 'Edit', edit_recipe_path(recipe) %></button></td>
+        <td><button id="des" type="button" class="btn btn-warning btn-xs"><%= link_to 'Destroy', recipe, method: :delete, data: { confirm: 'Are you sure?' } %></button></td>
+        
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+<button type="button" class="btn btn-warning"><%= link_to 'New Recipe', new_recipe_path %>

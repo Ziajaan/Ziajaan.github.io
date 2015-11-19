@@ -1,0 +1,43 @@
+<!-- <p id="notice"><%= notice %></p> -->
+
+<p id="inst1">
+  <strong>Name:</strong>
+  <%= @recipe.name %>
+</p>
+
+<p id="inst">
+  <strong>Category:</strong>
+  <%= @recipe.category %>
+</p>
+
+<p id="inst">
+  <strong>Ingredients:</strong>
+  <%= @recipe.ingredients %>
+</p>
+
+<p id="inst">
+  <strong>Instructions:</strong>
+  <%= @recipe.instructions %>
+</p>
+
+<p id="inst">
+  <strong>Minutes to prepare:</strong>
+  <%= @recipe.minutes_to_prepare %>
+</p>
+
+<p id="inst">
+  <strong>Minutes to cook:</strong>
+  <%= @recipe.minutes_to_cook %>
+</p>
+
+<p id="trk">
+<strong></strong>
+<%= image_tag @recipe.image_url if @recipe.image.present? %>
+</p>
+
+<a id="edt"><button  type="button" class="btn btn-warning"><%= link_to 'Edit', edit_recipe_path(@recipe) %></a>
+<a id="edt"><button type="button" class="btn btn-warning"><%= link_to 'Back', recipes_path %></a>
+
+
+
+
